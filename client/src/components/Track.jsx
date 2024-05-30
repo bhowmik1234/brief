@@ -119,12 +119,12 @@ const Track = () => {
         const fetchData = async () => {
           try {
             const a = address;
-            const sentResponse = await axios.get(`http://localhost:5002/getsendData/${a}`);
+            const sentResponse = await axios.get(`https://chat-phi-kohl.vercel.app/getsendData/${a}`);
             const sentCount = sentResponse.data.length; 
             setSent(sentCount);
       
             const b = address;
-            const receiveResponse = await axios.get(`http://localhost:5002/getreceiveData/${b}`);
+            const receiveResponse = await axios.get(`https://chat-phi-kohl.vercel.app/getreceiveData/${b}`);
             const receiveCount = receiveResponse.data.length; 
             setReceive(receiveCount);
       

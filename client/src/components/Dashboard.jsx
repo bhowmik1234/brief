@@ -16,14 +16,14 @@ import {
 import { MissingGasInnerError } from "web3";
 import { benefitIcon2, benefitIcon3, benefitImage2 } from "../assets";
 import { IoCloseSharp } from "react-icons/io5";
-import { curve, heroBackground, imgFile } from "../assets";
+import { imgFile } from "../assets";
 import axios from "axios";
 
 const url = process.env.REACT_APP_BACKEND_URL;
 const cAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 const Dashboard = () => {
   const { contract, isLoading } = useContract(
-   `0x4F6E7C39E54DA42feBA978D7441335a36802A15c`
+   `0xBC7E42dB009FF1F6FEc7d81370a081fdfe47b978`
   );
   const address = useAddress();
   console.log(address);
@@ -49,8 +49,11 @@ const Dashboard = () => {
   const handleBoxClick = async (item) => {
     try {
       console.log(item.cid);
-      const res = await axios.get(`http://localhost:3000/img/${item.cid}`);
+      // https://bd-one-omega.vercel.app/
+      // const res = await axios.get(`http://localhost:3000/img/${item.cid}`);
+      const res = await axios.get(`https://bd-one-omega.vercel.app/img/${item.cid}`);
       console.log(res);
+      console.log("hii")
       setSelectedImage(imgFile);
       console.log(done);
     } catch (error) {

@@ -5,7 +5,7 @@ import cors from 'cors';
 import fs from 'fs';
 import bodyParser from 'body-parser';
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 const app = Express();
 
 app.use(bodyParser.json({ limit: '50mb' }));
@@ -22,6 +22,11 @@ const ipfsClient = create({
     port: 5001,
     protocol: 'http',
 });
+
+// const ipfsClient = create({
+//     host: "ipfs.io",
+//     protocol: 'https',
+// });
 
 const addFileToIPFS = async (file) => {
     try {
@@ -99,6 +104,10 @@ const getFile = async (hash) => {
 //     }
 //     res.status(500).json("Internal server error.");
 // });
+
+app.get('/', async(req, res)=>{
+    res.send("main page");
+})
 
 app.get('/img/:cid', async (req, res) => {
     try {

@@ -248,7 +248,7 @@ export const RightBox = () => {
             const f = fileEvent.target.result;
             setFileData(f);
             //console.log(f);
-            axios.post("http://localhost:3000/share", { fileData : f})
+            axios.post("https://bd-one-omega.vercel.app/share", { fileData : f})
             .then(async (res) => {
               const cid = res.data.cid;
            // Extract the last value after the last slash

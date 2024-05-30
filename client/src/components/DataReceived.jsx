@@ -18,7 +18,7 @@ useEffect(() => {
     const fetchData = async () => {
       const receiver = address;
       try {
-        const resp = await axios.get(`http://localhost:5002/getreceiveData/${receiver}`);
+        const resp = await axios.get(`https://chat-phi-kohl.vercel.app/getreceiveData/${receiver}`);
         setMsg(resp.data);
         console.log(resp.data);
       } catch (error) {

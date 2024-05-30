@@ -27,6 +27,7 @@
     "react-simple-chatbot": "^0.6.1",
     "react-split": "^2.0.14",
     "scroll-lock": "^2.1.5",
+    "styled-components": "^6.1.11",
     "thirdweb": "^5.3.1",
     "wallet-address-validator": "^0.2.4",
     "web3": "^4.7.0"

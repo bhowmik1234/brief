@@ -12,13 +12,12 @@ import {
 import { benefitIcon4, benefitIcon2, benefitImage2 } from "../assets";
 import { IoCloseSharp } from 'react-icons/io5';
 import axios from "axios";
-import DatePicker from "react-date-picker";
 import CryptoJS from 'crypto-js'; // Import CryptoJS library
 
 const cAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 const Revoke = () => {
   const { contract, isLoading } = useContract(
-    `0x4F6E7C39E54DA42feBA978D7441335a36802A15c`
+    `0xBC7E42dB009FF1F6FEc7d81370a081fdfe47b978`
   );
   const address = useAddress();
   const [msg, setMsg] = useState([]);

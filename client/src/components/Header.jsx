@@ -36,7 +36,7 @@ const Header = () => {
 
   const check = async ()=>{
     try {
-      const res = await axios.post("http://localhost:5002/userlogin",{address});
+      const res = await axios.post("https://chat-phi-kohl.vercel.app/userlogin",{address});
       console.log(res);
       console.log("user connected successfully.");
     } catch (error) {
