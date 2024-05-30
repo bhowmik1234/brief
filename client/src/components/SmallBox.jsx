@@ -2,9 +2,11 @@ import React from 'react'
 import Button from './Button'
 import { useContract, useAddress, useContractRead } from "@thirdweb-dev/react";
 
+
+const cAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 export const SmallBox = () => {
   const address = useAddress();
-  const { contract } = useContract("0x386768EafD1dBa8Bee54998E60121DBd3A8B7B73");
+  const { contract } = useContract(`0x4F6E7C39E54DA42feBA978D7441335a36802A15c`);
   //const { mutateAsync : getFiles, isLoading } = useContractRead(contract,"getFiles");
 
   const bytes32ToDecimal = (bytes32Hex) => {

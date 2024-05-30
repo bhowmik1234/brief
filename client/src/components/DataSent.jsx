@@ -165,8 +165,11 @@ import axios from "axios";
 import { useEffect,useState } from "react";
 import { useContract, useAddress, useContractRead } from "@thirdweb-dev/react";
 
+
 const DataSent = () => {
-  const { contract,isLoading } = useContract("0x386768EafD1dBa8Bee54998E60121DBd3A8B7B73"); //contract address
+  const cAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
+  console.log(cAddress);
+  const { contract,isLoading } = useContract(`0x4F6E7C39E54DA42feBA978D7441335a36802A15c`); //contract address
   const address = useAddress();
   console.log(address);
   const [msg, setMsg] = useState([]);
@@ -175,7 +178,9 @@ const DataSent = () => {
     const fetchData = async () => {
       if(!isLoading){
         const data = await contract.call("getFiles",[address]);
+        // data = data.filter(()=>{});
         setMsg(data);
+        console.log(data);
         console.log(msg.length);
         // const _cid = msg[0].cid;
         // const _receiver = msg[0].receiver;
@@ -215,9 +220,9 @@ const DataSent = () => {
     { !(msg.length === 0) ?
       msg.map((item, index) => (
         <div className="border-transparent rounded-lg bg-zinc-600 border-white p-2" key={index}>
-          <div className="text-zinc-300 text-lg">Receiver : {item.receiver}</div>
-          <p className="text-zinc-300 text-lg ">cid : {item.cid}</p>
-          <div>TimeStamp : {convertUTC(item.timestamp)}</div>
+          <div className="text-emerald-300 text-lg">Receiver : <span className="text-white text-sm">{item.receiver}</span></div>
+          <p className="text-yellow-300 text-lg truncate">cid : <span className=" text-sm text-white">{item.cid}</span></p>
+          <div className="text-yellow-300">TimeStamp : <span className="text-sm text-white">{convertUTC(item.timestamp)}</span></div>
         </div>
       )) : address ? (
         <p>No Uploads!!</p>

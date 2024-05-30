@@ -2,14 +2,17 @@ import React, {useState, useEffect} from 'react'
 import axios from "axios";
 import { IoCloseSharp } from "react-icons/io5";
 import { curve, heroBackground, imgFile } from "../assets";
-import { useAddress } from '@thirdweb-dev/react';
+import { useAddress, useContract } from '@thirdweb-dev/react';
 
 
+const url = process.env.REACT_APP_BACKEND_URL;
+const curl = process.env.REACT_APP_CHAT_URL;
 const DataReceived = () => {
   const [msg, setMsg] = React.useState([]);
   const [isPopupOpen, setIsPopupOpen] = useState(false); // State for popup visibility
   const [selectedImage, setSelectedImage] = useState(null);
   const address = useAddress();
+  const { contract,isLoading } = useContract(`0x4F6E7C39E54DA42feBA978D7441335a36802A15c`);
 
 useEffect(() => {
     const fetchData = async () => {
@@ -26,25 +29,10 @@ useEffect(() => {
     fetchData();
   }, []);
 
-  const bytes32ToDecimal = (bytes32Hex) => {
-    if (bytes32Hex.startsWith('0x')) {
-        bytes32Hex = bytes32Hex.slice(2);
-    }
-    let result = BigInt('0x' + bytes32Hex);
-    return result.toString();
-  }
-  
-  const decimalToUTC = (decimalTimestamp) => {
-    const timestampMilliseconds = decimalTimestamp * 1000;
-    const date = new Date(timestampMilliseconds);
-    const utcString = date.toUTCString();
-    return utcString;
-  }
-
   const handleBoxClick = async (item) => {
     try {
       console.log(item.content);
-      const res = await axios.get(`http://localhost:3000/img/${item.content}`);
+      const res = await axios.get(`${url}/img/${item.content}`);
       console.log(res);
       setSelectedImage(imgFile); 
       console.log(done);
@@ -58,23 +46,17 @@ useEffect(() => {
   // Function to close the popup
   const handlePopupClose = () => {
     setIsPopupOpen(false); 
-    window.location.reload();
+    // window.location.reload();
     setSelectedImage(null); 
   };
 
 
-  const convertUTC = (bytes32) => {
-    const decimal = bytes32ToDecimal(bytes32);
-    const utcDateTime = decimalToUTC(decimal); // Get the UTC date and time string
-    const utcDate = new Date(utcDateTime); // Convert UTC string to a Date object
-    const istDate = utcDate.toLocaleString('en-US', {timeZone: 'Asia/Kolkata'}); // Convert to IST
-    return istDate;
-  }
-
   const formatTimestamp = (timestamp) => {
     const dateObj = new Date(timestamp);
-    return dateObj.toLocaleString(); // Adjust formatting as needed
+    return dateObj.toLocaleString(); 
   };
+  
+
   
 
   return (
@@ -82,10 +64,10 @@ useEffect(() => {
     {msg.length !== 0 ? (
         msg.map((item, index) => (
           <div key={index} className="box bg-zinc-700 rounded-lg shadow-lg border-transparent p-4 cursor-pointer hover:bg-zinc-800" onClick={() => handleBoxClick(item)}>
-            <div className="text-yellow-3100">Filename : <span className='text-white'>{item.filename}</span></div>
-            <div className="text-yellow-3100">Receiver : <span className='text-white'>{item.receiver}</span></div>
-            <p className="text-yellow-3100">cid : <span className='text-white'>{item.content}</span></p>
-            <div className="text-yellow-3100">TimeStamp : <span className='text-white'>{formatTimestamp(item.createdAt)}</span></div>
+            {/* <div className="text-yellow-3100">Filename : <span className='text-white'>{item.filename}</span></div> */}
+            <div className="text-emerald-300">Receiver : <span className='text-white text-sm'>{item.receiver}</span></div>
+            <p className="text-yellow-300 truncate text-lg">cid : <span className="text-white text-sm">{item.content}</span></p>
+            <div className="text-yellow-300 text-lg">TimeStamp : <span className='text-white text-sm'>{formatTimestamp(item.createdAt)}</span></div>
           </div>
         ))
       ) : (

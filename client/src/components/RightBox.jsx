@@ -200,9 +200,10 @@ import { ankle } from "../assets/index.js";
 
 const web3 = new Web3(window.ethereum);
 
+const cAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 export const RightBox = () => {
   const [dip, setDip] = useState(false);
-    const { contract } = useContract("0x386768EafD1dBa8Bee54998E60121DBd3A8B7B73");
+  const { contract } = useContract("0x4F6E7C39E54DA42feBA978D7441335a36802A15c");
     const { mutateAsync : addFileToIPFS, isLoading } = useContractWrite(contract,'addFileToIPFS');
     
     const [fileData, setFileData] = React.useState(null);

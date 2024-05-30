@@ -35,40 +35,40 @@ const router = createBrowserRouter(
 )
 
 //XDC
-// const customChain = {
-//   chainId: 51, // Chain ID for XinFin Apothem Testnet
-//   rpc: ["https://rpc.apothem.network"], // RPC endpoint for XinFin Apothem Testnet
-
-//   nativeCurrency: {
-//     decimals: 18,
-//     name: "XDC",
-//     symbol: "XDC",
-//   },
-//   shortName: "xdc-testnet", // Display value shown in the wallet UI
-//   slug: "xinfin-testnet", // Display value shown in the wallet UI
-//   testnet: true, // Boolean indicating whether the chain is a testnet or mainnet
-//   chain: "XinFin", // Name of the network
-//   name: "XinFin Apothem Testnet", // Name of the network
-// };
-
-//polygon
 const customChain = {
-  chainId: 80002, 
-  rpc: ["https://80002.rpc.thirdweb.com"], 
- 
-  // Information for adding the network to your wallet (how it will appear for first time users) === \\
-  // Information about the chain's native currency (i.e. the currency that is used to pay for gas)
+  chainId: 51, // Chain ID for XinFin Apothem Testnet
+  rpc: ["https://rpc.apothem.network"], // RPC endpoint for XinFin Apothem Testnet
+
   nativeCurrency: {
     decimals: 18,
-    name: "Polygon",
-    symbol: "MATIC",
+    name: "XDC",
+    symbol: "XDC",
   },
-  shortName: "czkevm", // Display value shown in the wallet UI
-  slug: "consensys", // Display value shown in the wallet UI
+  shortName: "xdc-testnet", // Display value shown in the wallet UI
+  slug: "xinfin-testnet", // Display value shown in the wallet UI
   testnet: true, // Boolean indicating whether the chain is a testnet or mainnet
-  chain: "Polygon", // Name of the network
-  name: "Polygon Amoy Testnet", // Name of the network
+  chain: "XinFin", // Name of the network
+  name: "XinFin Apothem Testnet", // Name of the network
 };
+
+//polygon
+// const customChain = {
+//   chainId: 80002, 
+//   rpc: ["https://80002.rpc.thirdweb.com"], 
+ 
+//   // Information for adding the network to your wallet (how it will appear for first time users) === \\
+//   // Information about the chain's native currency (i.e. the currency that is used to pay for gas)
+//   nativeCurrency: {
+//     decimals: 18,
+//     name: "Polygon",
+//     symbol: "MATIC",
+//   },
+//   shortName: "czkevm", // Display value shown in the wallet UI
+//   slug: "consensys", // Display value shown in the wallet UI
+//   testnet: true, // Boolean indicating whether the chain is a testnet or mainnet
+//   chain: "Polygon", // Name of the network
+//   name: "Polygon Amoy Testnet", // Name of the network
+// };
 
 
 

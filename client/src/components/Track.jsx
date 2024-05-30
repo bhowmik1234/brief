@@ -150,7 +150,7 @@ const Track = () => {
 
           <Card className="mx-auto z-0 max-w-3xl bg-zinc-700 rounded-lg p-4"> 
             <p className="text-tremor-default  text-dark-tremor-content">Data Sent</p>
-            <p className="text-3xl text-dark-tremor-content-strong font-semibold">17</p>
+            <p className="text-3xl text-dark-tremor-content-strong font-semibold">4</p>
           </Card>
 
           <Card className="mx-auto z-0 max-w-3xl border-transparent bg-zinc-700 rounded-lg p-4"> 

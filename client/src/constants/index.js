@@ -53,11 +53,11 @@ export const navigation = [
     title: "File access",
     url: "/revoke",
   },
-  {
-    id: "4",
-    title: "Healthbot",
-    url: "/health",
-  },
+  // {
+  //   id: "4",
+  //   title: "Healthbot",
+  //   url: "/health",
+  // },
   {
     id: "7",
     title: "Dashboard",

@@ -15,9 +15,10 @@ import axios from "axios";
 import DatePicker from "react-date-picker";
 import CryptoJS from 'crypto-js'; // Import CryptoJS library
 
+const cAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 const Revoke = () => {
   const { contract, isLoading } = useContract(
-    "0xf1725A52E1543c37e45DdB28d3cc63bbFC11875F"
+    `0x4F6E7C39E54DA42feBA978D7441335a36802A15c`
   );
   const address = useAddress();
   const [msg, setMsg] = useState([]);
